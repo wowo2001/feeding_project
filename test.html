@@ -1,0 +1,420 @@
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.block {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #228B22;
+  color: white;
+  padding: 14px 28px;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+p.ex1 {
+  font-size: 40px;
+  color: white;
+}
+
+p.ex2 {
+  font-size: 20px;
+  color: white;
+}
+
+.layout {
+  width: 100%;
+  height: 50%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+</style>
+</head>
+
+<body style="background-color:rgb(0, 0, 0);">
+<h1> </h1>
+
+<section class="layout">
+    <div>
+
+        <button type="button" id="breastFeedingButton" class="block">Start breast feeding</button>
+
+        </div>
+
+    <div>
+        <img width="20%" height="10%" src="data:image/png;base64,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">
+        <p class="ex1" id="BreastFeeding_Timer">00:00</p>
+        <p class="ex2" > Start: </p>
+        <p class="ex2" id="Last_BreastFeeding_start_time"> </p>
+        <p class="ex2" > End: </p>
+        <p class="ex2" id="Last_BreastFeeding_end_time"> </p>
+        </div>
+
+<!--    <div>-->
+<!--        <img width="100%" height="30%" src="data:image/png;base64,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">-->
+<!--        </div>-->
+
+
+    <div>
+        <button type="button" id="bottleFeedingButton" class="block">Start bottle feeding</button>
+        </div>
+
+    <div>
+        <img width="20%" height="10%"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAB+CAMAAADV/VW6AAAA0lBMVEX////u9fYAAADe7PH/4Xd5sOLw8PDm8fTm9Pr2/v9ydXZqcHNllL1yptVqbW6coKH/7H2NjY1rYjQ+kNb/0XHX3d7/6Hs8jM8UFRVbXl45OztUWFj/2HS0ubr/3Xbq6uo0ebSrrq53YjXpv2fIzc0iIiJFRUUsLCynl1CUgkXexmnU1dVNUFHQ3eKDhobAwMAjIBBiVy9LQSPSu2PSsF95ajm8pli6m1MiGw8QDAahh0mLdj9iUCtWTSnw1HCdi0hEVmOWu9QdKjZJaohXfqEua5/f57WeAAAEVElEQVRoge2be3uTShCHw6UJybEQFDAkUIxysQ1NTDVHPaf2HG/f/yu5syyB5ulCWmcXtfz+CoSHl9nL7MwyDAYPV2zPVXVub37iFg/XhrALzTt4AEutyZJNX1Lsm+31G/pjKZfuAvPq7XTqnb27gt+uVLxPiDvP03X9LAhekgNfJh2Mv9ILBY5zJdl8GHd/ewX+zAneSx59E8JjxhO845BDUyI+J4Peq+E/qGouEU9G3se69R/ljr07Gn8iEW8T3k2Ff0UObYl48HlvvXLiBe8k+724NvGCYuLFEvErwvuvwv9DDlcS8eD1zhnecYJ/yWEkER8l4PL3eOL0E5n4IQk1tnqJd65JyDGUBx9G6SE+jYZSHiCy0ixL1KrxA9r4apJlqSW8B5ZJGWCV814P6LynSgTP/irCe13SibzXcqK+mCK2u935xVSvaXpxvnt5Tf8U6X5y6PMbz/M8/UDkTODAGBC48IK3+XQI3otEXZ+ERl1hzdXfhafOPxSGt2rr7J3WvxI6+AB/0S3+ZnpbrC/ILz04E4cfWqaZwqx7elvnlH6xIz+3W5h7qWla6P53tfd2h4J13zs4lyCv/kMuXf3/M9HhyQTX/pBL/3J6QvT18DTu9IPQ9snpnTqhYgfPQS9U7MAX8CdH6BnouRD8aY/v8Y8SfwRdJP7bk3a9AH1Hx2+4Tpcj3H3WcXo/eopKJ8lNfh96jp7usDXPX1t82ZNFcRV6uEm3kGe2q4wbZBja5XoGVyInWzS9yd2x0ixN04yYdhNuspOROy6UNjrlaxr0QIZJt+gNW+GKMgK8AQ+LGfBCc7pH0Jn5tKvw6OB0Ju0tX5k/Qe39NdytuP1+lLeav0bD+6o6H1G4u7ap1nYj/nKOuMcMQf6CmhtVjs1vbP0FYqg/3Hd9XOGzRrxJrsDHK/6slNWI/0sMXnFL8caeWHyrenyP7/F/Bp4sIHaB3z8E92nw8QM3nzBo6DOZvOhDAJ6kGcW9V9WSM5eJV34J/Hg9LxV30PhkxI0KCHfsCcCvFpMRhyYBD8HW+vG6nR7f4zvHtz+ESPzYLrOMbNMBPu5iyanwbm3vrIvGDxdMvrxwoz70WrcX/uSJ1+N/A/wSc2vp3njNiPE2tR+A1zQ0+q+EL3eWok7wi73PX3Kag+ENEfjaipc0Wn+Z4r3LqvC1TVWzCQ9b2gI2VZWVzWTx0h6xbqdf8Xp8j398+G7nfRQy8Ta2xOJne5/Pe5EnBm8ernizRjzqi7R5mdKNsuOs13LMknliS1aEN6Oy73n5NXuJmmF+pgRVO/HtJI9Hp3gDCj3wKncgr86PqR4oux7qJxCLpeGzy/Aox1MmGaiVO7RoqbVwhBlvXMLVqGVLtBqknV/QaZ0JJn0Qgb+ZhQ1DjjW9YYT0UuSypeI9Rhoqg+ayoWVR3IX+jdKK+dvMN7nymVeaCfhCauirR8oX84XO5qiquVTcJ9GrpZk1oTNzeb92/wH74IPxDaNB2gAAAABJRU5ErkJggg==">
+        <p class="ex1" id="BottleFeeding_Timer">00:00</p>
+        <p class="ex2" > Start: </p>
+        <p class="ex2" id="Last_BottleFeeding_start_time"> </p>
+        <p class="ex2" > End: </p>
+        <p class="ex2" id="Last_BottleFeeding_end_time"> </p>
+        </div>
+    <div>
+        <p class="ex2"> Start: </p>
+        <input type="date" id="Start_Date" />
+        <select id="Start_Hour">
+        </select>
+        <select id="Start_Min">
+        </select>
+        <br>
+        <p class="ex2"> End: </p>
+        <input type="date" id="End_Date" />
+        <select id="End_Hour">
+        </select>
+        <select id="End_Min">
+        </select>
+        <p class="ex2"> Type: </p>
+        <select id="Type">
+            <option value="breast_feeding">breast feeding</option>
+            <option value="bottle_feeding">bottle feeding</option>
+        </select>
+        </div>
+    <div>
+        <button class="block" type="button" id="Submit">Submit</button>
+        </div>
+
+
+
+    <div>
+        <p class="ex1" > Start: </p>
+        <p class="ex2" id="History_Start"> </p>
+        </div>
+    <div>
+        <p class="ex1" > End: </p>
+        <p class="ex2" id="History_End"> </p>
+        </div>
+<!--    <div>-->
+<!--        <img width="100%" height="30%"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH4AAAB+CAMAAADV/VW6AAAA0lBMVEX////u9fYAAADe7PH/4Xd5sOLw8PDm8fTm9Pr2/v9ydXZqcHNllL1yptVqbW6coKH/7H2NjY1rYjQ+kNb/0XHX3d7/6Hs8jM8UFRVbXl45OztUWFj/2HS0ubr/3Xbq6uo0ebSrrq53YjXpv2fIzc0iIiJFRUUsLCynl1CUgkXexmnU1dVNUFHQ3eKDhobAwMAjIBBiVy9LQSPSu2PSsF95ajm8pli6m1MiGw8QDAahh0mLdj9iUCtWTSnw1HCdi0hEVmOWu9QdKjZJaohXfqEua5/f57WeAAAEVElEQVRoge2be3uTShCHw6UJybEQFDAkUIxysQ1NTDVHPaf2HG/f/yu5syyB5ulCWmcXtfz+CoSHl9nL7MwyDAYPV2zPVXVub37iFg/XhrALzTt4AEutyZJNX1Lsm+31G/pjKZfuAvPq7XTqnb27gt+uVLxPiDvP03X9LAhekgNfJh2Mv9ILBY5zJdl8GHd/ewX+zAneSx59E8JjxhO845BDUyI+J4Peq+E/qGouEU9G3se69R/ljr07Gn8iEW8T3k2Ff0UObYl48HlvvXLiBe8k+724NvGCYuLFEvErwvuvwv9DDlcS8eD1zhnecYJ/yWEkER8l4PL3eOL0E5n4IQk1tnqJd65JyDGUBx9G6SE+jYZSHiCy0ixL1KrxA9r4apJlqSW8B5ZJGWCV814P6LynSgTP/irCe13SibzXcqK+mCK2u935xVSvaXpxvnt5Tf8U6X5y6PMbz/M8/UDkTODAGBC48IK3+XQI3otEXZ+ERl1hzdXfhafOPxSGt2rr7J3WvxI6+AB/0S3+ZnpbrC/ILz04E4cfWqaZwqx7elvnlH6xIz+3W5h7qWla6P53tfd2h4J13zs4lyCv/kMuXf3/M9HhyQTX/pBL/3J6QvT18DTu9IPQ9snpnTqhYgfPQS9U7MAX8CdH6BnouRD8aY/v8Y8SfwRdJP7bk3a9AH1Hx2+4Tpcj3H3WcXo/eopKJ8lNfh96jp7usDXPX1t82ZNFcRV6uEm3kGe2q4wbZBja5XoGVyInWzS9yd2x0ixN04yYdhNuspOROy6UNjrlaxr0QIZJt+gNW+GKMgK8AQ+LGfBCc7pH0Jn5tKvw6OB0Ju0tX5k/Qe39NdytuP1+lLeav0bD+6o6H1G4u7ap1nYj/nKOuMcMQf6CmhtVjs1vbP0FYqg/3Hd9XOGzRrxJrsDHK/6slNWI/0sMXnFL8caeWHyrenyP7/F/Bp4sIHaB3z8E92nw8QM3nzBo6DOZvOhDAJ6kGcW9V9WSM5eJV34J/Hg9LxV30PhkxI0KCHfsCcCvFpMRhyYBD8HW+vG6nR7f4zvHtz+ESPzYLrOMbNMBPu5iyanwbm3vrIvGDxdMvrxwoz70WrcX/uSJ1+N/A/wSc2vp3njNiPE2tR+A1zQ0+q+EL3eWok7wi73PX3Kag+ENEfjaipc0Wn+Z4r3LqvC1TVWzCQ9b2gI2VZWVzWTx0h6xbqdf8Xp8j398+G7nfRQy8Ta2xOJne5/Pe5EnBm8ernizRjzqi7R5mdKNsuOs13LMknliS1aEN6Oy73n5NXuJmmF+pgRVO/HtJI9Hp3gDCj3wKncgr86PqR4oux7qJxCLpeGzy/Aox1MmGaiVO7RoqbVwhBlvXMLVqGVLtBqknV/QaZ0JJn0Qgb+ZhQ1DjjW9YYT0UuSypeI9Rhoqg+ayoWVR3IX+jdKK+dvMN7nymVeaCfhCauirR8oX84XO5qiquVTcJ9GrpZk1oTNzeb92/wH74IPxDaNB2gAAAABJRU5ErkJggg==">-->
+<!--        </div>-->
+
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    getLastFeedingTime();
+    update_options("Start");
+    update_options("End");
+});
+document.getElementById("breastFeedingButton").onclick = function() {
+    if (document.getElementById("breastFeedingButton").textContent == "Start breast feeding")
+        {
+            breastFeedingStart();
+        }
+    else {
+            breastFeedingEnd();
+         }
+    };
+
+document.getElementById("bottleFeedingButton").onclick = function() {
+    if (document.getElementById("bottleFeedingButton").textContent == "Start bottle feeding")
+        {
+            bottleFeedingStart();
+        }
+    else {
+            bottleFeedingEnd();
+         }
+    };
+document.getElementById("Submit").onclick = function(){
+
+    submit_record();
+}
+async function breastFeedingStart() {
+  let url = window.location.href.replace("/home","/time");
+  let response = await fetch(url);
+  let data = await response.json();
+  var lastFeedingTime = new Date(document.getElementById("Last_BreastFeeding_end_time").textContent);
+  if(new Date(data.time).getDate() == lastFeedingTime.getDate())
+  {
+    if(new Date(data.time).getHours()>9 && lastFeedingTime.getHours() < 9)
+        {
+            alert("Feed vitamin D!");
+        }
+  }
+  if(new Date(data.time).getDate() != lastFeedingTime.getDate())
+  {
+    if(new Date(data.time).getHours()>9)
+        {
+            alert("Feed vitamin D!");
+        }
+  }
+  document.getElementById("Last_BreastFeeding_start_time").innerHTML =  data.time;
+  document.getElementById("Last_BreastFeeding_end_time").innerHTML = "";
+  document.getElementById("breastFeedingButton").textContent= "Stop Feeding";
+  document.getElementById("breastFeedingButton").style.background='#DC143C';
+  breastFeedingtimerOn = true;
+  bottleFeedingtimerOn = false;
+  post_data(document.getElementById("Last_BreastFeeding_start_time").innerHTML,document.getElementById("Last_BreastFeeding_end_time").innerHTML,"breast_feeding");
+  breast_feeding_start_time = new Date();
+  setInterval(setTimer, 1000);
+  setTimer();
+}
+
+async function breastFeedingEnd() {
+  let url = window.location.href.replace("/home","/time");
+  let response = await fetch(url);
+  let data = await response.json();
+  var breastFeedingStartTime = document.getElementById("Last_BreastFeeding_start_time").textContent;
+  var breastFeedingEndTime = data.time;
+  document.getElementById("Last_BreastFeeding_end_time").innerHTML =  breastFeedingEndTime;
+  document.getElementById("breastFeedingButton").textContent= "Start breast feeding";
+  document.getElementById("breastFeedingButton").style.background='#228B22';
+  post_data(breastFeedingStartTime,breastFeedingEndTime,"breast_feeding")
+  breastFeedingtimerOn = false;
+  clearInterval(setTimer);
+  getLastFeedingTime();
+}
+
+async function bottleFeedingStart() {
+  let url = window.location.href.replace("/home","/time");
+  let response = await fetch(url);
+  let data = await response.json();
+  document.getElementById("Last_BottleFeeding_start_time").innerHTML =  data.time;
+  document.getElementById("Last_BottleFeeding_end_time").innerHTML = "";
+  document.getElementById("bottleFeedingButton").textContent= "Stop Feeding";
+  document.getElementById("bottleFeedingButton").style.background='#DC143C';
+  bottleFeedingtimerOn = true;
+  breastFeedingtimerOn = false;
+  post_data(document.getElementById("Last_BottleFeeding_start_time").innerHTML,document.getElementById("Last_BottleFeeding_end_time").innerHTML,"bottle_feeding");
+  bottle_feeding_start_time = new Date();
+  setInterval(setTimer, 1000);
+  setTimer();
+}
+
+async function bottleFeedingEnd() {
+  let url = window.location.href.replace("/home","/time");
+  let response = await fetch(url);
+  let data = await response.json();
+  var bottleFeedingStartTime = document.getElementById("Last_BottleFeeding_start_time").textContent;
+  var bottleFeedingEndTime = data.time;
+  document.getElementById("Last_BottleFeeding_end_time").innerHTML =  bottleFeedingEndTime;
+  document.getElementById("bottleFeedingButton").textContent= "Start bottle feeding";
+  document.getElementById("bottleFeedingButton").style.background='#228B22';
+  post_data(bottleFeedingStartTime,bottleFeedingEndTime,"bottle_feeding");
+  bottleFeedingtimerOn = false;
+  clearInterval(setTimer);
+  getLastFeedingTime();
+}
+
+
+function setTimer() {
+  var now = new Date();
+  if(breastFeedingtimerOn) {
+    var distance = now.getTime() - breast_feeding_start_time.getTime();
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("BreastFeeding_Timer").innerHTML = minutes + ": " + seconds;
+  }
+  if(bottleFeedingtimerOn)
+  {
+    var distance = now.getTime() - bottle_feeding_start_time.getTime();
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("BottleFeeding_Timer").innerHTML = minutes + ": " + seconds;
+  }
+}
+function calculateTimeInterval()
+{
+    var start = new Date(document.getElementById("Last_BreastFeeding_start_time").textContent);
+    var end = new Date(document.getElementById("Last_BreastFeeding_end_time").textContent);
+    var distance = end - start;
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("BreastFeeding_Timer").innerHTML = minutes + ": " + seconds;
+
+    var start = new Date(document.getElementById("Last_BottleFeeding_start_time").textContent);
+    var end = new Date(document.getElementById("Last_BottleFeeding_end_time").textContent);
+    var distance = end - start;
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("BottleFeeding_Timer").innerHTML = minutes + ": " + seconds;
+
+}
+async function getLastFeedingTime(){
+  let url = window.location.href.replace("/home","/data");
+  let response = await fetch(url);
+  let data = await response.json();
+  const latestBreastFeedingTimes = getLatestFeedingTimes(data, "breast_feeding");
+  const latestBottleFeedingTimes = getLatestFeedingTimes(data, "bottle_feeding");
+  document.getElementById("History_Start").innerHTML = "";
+  document.getElementById("History_End").innerHTML = "";
+  const history = getHistory(data);
+  for (let i = 0; i < 3; i++)
+  {
+    document.getElementById("History_Start").innerHTML = document.getElementById("History_Start").innerHTML + history[i].start + "<br>"
+    document.getElementById("History_End").innerHTML = document.getElementById("History_End").innerHTML + history[i].end + "<br>"
+  }
+  document.getElementById("Last_BreastFeeding_start_time").innerHTML =  latestBreastFeedingTimes.start;
+  document.getElementById("Last_BreastFeeding_end_time").innerHTML =  latestBreastFeedingTimes.end;
+  document.getElementById("Last_BottleFeeding_start_time").innerHTML =  latestBottleFeedingTimes.start;
+  document.getElementById("Last_BottleFeeding_end_time").innerHTML =  latestBottleFeedingTimes.end;
+  calculateTimeInterval();
+
+  if(latestBreastFeedingTimes.end == "")
+  {
+    document.getElementById("breastFeedingButton").textContent= "Stop Feeding";
+    document.getElementById("breastFeedingButton").style.background='#DC143C';
+    bottleFeedingtimerOn = false;
+    breastFeedingtimerOn = true;
+    breast_feeding_start_time = new Date(latestBreastFeedingTimes.start);
+    setInterval(setTimer, 1000);
+    setTimer();
+  }
+  if(latestBottleFeedingTimes.end == "")
+  {
+    document.getElementById("bottleFeedingButton").textContent= "Stop Feeding";
+    document.getElementById("bottleFeedingButton").style.background='#DC143C';
+    bottleFeedingtimerOn = true;
+    breastFeedingtimerOn = false;
+    bottle_feeding_start_time = new Date(latestBreastFeedingTimes.start);
+    setInterval(setTimer, 1000);
+    setTimer();
+  }
+}
+
+function getLatestFeedingTimes(entries, feedingType) {
+
+  const filteredEntries = entries.filter(entry => entry.type === feedingType);
+  if (filteredEntries.length === 0) {
+    return null; // No entry found for the specified type
+  }
+  // Sort the entries by start time in descending order
+  const sortedEntries = filteredEntries.sort((a, b) => new Date(b.start) - new Date(a.start));
+
+  const latestEntry = filteredEntries[0];
+  return { start: latestEntry.start, end: latestEntry.end };
+}
+
+function getHistory(entries) {
+
+  const sortedEntries = entries.sort((a, b) => new Date(b.start) - new Date(a.start));
+  return sortedEntries;
+}
+
+function post_data(start,end,type)
+{
+    let url = window.location.href
+
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+            start: start,
+            end: end,
+            type: type
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+}
+
+async function update_options(id)
+{
+    let url = window.location.href.replace("/home","/time");
+    let response = await fetch(url);
+    let data = await response.json();
+    date = new Date(data.time)
+    var year = date.getFullYear();
+    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+    var day = date.getDate().toString().padStart(2, '0');
+    var datePicker = document.getElementById(id+"_Date");
+    datePicker.value = year + '-' + month + '-' + day;
+
+    var dropdown_hour = document.getElementById(id+"_Hour");
+
+    // Loop through the array and create an option element for each fruit
+    for (var i = 0; i <= 23; i++) {
+      var option = document.createElement("option");
+      option.text = i;
+      option.value = i; // You can set a different value if needed
+      dropdown_hour.add(option);
+    }
+    for (var i = 0; i < dropdown_hour.options.length; i++) {
+      if (dropdown_hour.options[i].value == date.getHours()) {
+        dropdown_hour.options[i].selected = true;
+        break;
+      }
+    }
+
+    var dropdown_min = document.getElementById(id+"_Min");
+
+    // Loop through the array and create an option element for each fruit
+    for (var i = 0; i < 60; i=i+5) {
+      var option = document.createElement("option");
+      option.text = i;
+      option.value = i; // You can set a different value if needed
+      dropdown_min.add(option);
+    }
+    for (var i = 0; i < dropdown_min.options.length; i++) {
+      if (Math.abs(dropdown_min.options[i].value - date.getMinutes())<5) {
+        dropdown_min.options[i].selected = true;
+        break;
+      }
+    }
+
+}
+function submit_record()
+{
+    const start = get_selected_time("Start");
+    const end = get_selected_time("End");
+    const type = document.getElementById("Type").value;
+
+    if (confirm("Do you want to record this feeding?"+"\nStart: "+start+"\nEnd: "+end+"\nType: "+type) == true)
+    {
+        post_data(start,end,type);
+        getLastFeedingTime();
+
+    }
+}
+function get_selected_time(id)
+{
+     var datePicker = document.getElementById(id+"_Date");
+
+      // Get the selected date value from the date picker
+      var selectedDateValue = datePicker.value;
+      // Parse the date string to obtain year, month, and day
+      var dateParts = selectedDateValue.split("-");
+      var year = dateParts[0];
+      var month = dateParts[1];
+      var day = dateParts[2];
+      var dropdown_hour = document.getElementById(id+"_Hour");
+      var dropdown_min = document.getElementById(id+"_Min");
+      var hour = dropdown_hour.value.toString().padStart(2, '0');;
+      var min = dropdown_min.value.toString().padStart(2, '0');;
+      return year + '/' + month + '/' + day + ' ' + hour + ':' + min + ':00';
+
+}
+</script>
+
+</body>
+</html>
